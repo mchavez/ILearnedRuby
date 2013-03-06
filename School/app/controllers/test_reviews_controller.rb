@@ -1,4 +1,5 @@
 class TestReviewsController < ApplicationController
+  before_filter :authenticate_user!
   def index
   	if params[:search]
   		@test_reviews = Answer.where(:quiz_id => params[:quiz_id], :user_name => params[:search])
