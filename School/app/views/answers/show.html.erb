@@ -1,0 +1,27 @@
+<!--<p id="notice"><%# notice %></p>-->
+
+<table class=reference>
+  <tr>
+    <th>User name</th>
+    <th>Question ID</th>
+    <th>Question</th>
+    <th>Response</th>
+    <th>No Quiz</th>
+    <th>Quiz</th>
+	  <th>Summited</th>
+    
+  </tr>
+   <tr>
+    <td><%= @answer.user_name %></td>
+    <td><%= @answer.question_id %></td>
+    <td><%= @answer.question.question %></td>
+    <td><%= @answer.response %></td>
+    <td><%= @answer.quiz_id %></td>
+    <td><%= @answer.question.test.name %></td>
+	  <td><%= @answer.created_at %></td>
+
+   </tr>
+  </table>
+
+</br>
+<td><%=link_to('Back to Test', { :controller => "questions", :action => "take_quiz", :id => @answer.quiz_id })%></td>

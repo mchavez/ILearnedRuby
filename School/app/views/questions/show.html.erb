@@ -1,0 +1,24 @@
+<!--<p id="notice"><%= notice %></p>-->
+
+<table class="reference">
+  <tr>
+	<th>ID</th>
+    <th>Question</th>
+    <th>Description</th>
+    <th>No Quiz</th>
+    <th>Quiz</th>
+  </tr>
+
+  <tr>
+	  <td><%= @question.id %></td>
+    <td><%= @question.question %></td>
+    <td><%= @question.description %></td>
+	  <td><%= @question.quiz_id %></td>
+	  <td><%= @question.test.name %></td>
+  </tr>
+
+</table>
+
+
+<%= link_to 'Edit', edit_question_path(@question) %> |
+<%= link_to 'Back', questions_path %>

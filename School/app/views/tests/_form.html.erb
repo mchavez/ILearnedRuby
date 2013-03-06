@@ -1,0 +1,33 @@
+<%= form_for(@test) do |f| %>
+  <% if @test.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@test.errors.count, "error") %> prohibited this test from being saved:</h2>
+
+      <ul>
+      <% @test.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <b><%= f.label :name %></b><br />
+    <%= f.text_field :name , :placeholder => "Please, Enter Test Name", size:'40%' %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description , :placeholder => "Please, Enter Test Description", size:'40x10' %>
+  </div>
+  <div class="field">
+    <%= f.label :date %><br />
+    <%= f.text_field :date, :placeholder => "Please, Enter Date", size:'40%' %>
+  </div>
+  <div class="field">
+ 	<b><%= f.label :course_id %></b><br />
+	<%= f.collection_select :course_id, @courses, :id, :name, :include_blank => "Select a Course" %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

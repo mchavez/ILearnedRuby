@@ -1,0 +1,28 @@
+<!--<p id="notice"><%= notice %></p>-->
+
+<h2>Course Name <%= @course.name %></h2>
+
+<table class="reference">
+  <tr>
+	<th>ID</th>
+    <th>Course Code</th>
+	<th>Course Name</th>
+    <th>Teacher ID</th>
+    <th>Teacher Name</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+  <tr>
+	<td><%= @course.id %></td>
+    <td><%= @course.code %></td>
+	<td><%= @course.name %></td>
+    <td><%= @course.teacher_id %></td>
+	<td><%= @teacher.full_name %></td>
+  </tr>
+
+</table>
+<br />
+
+<%= link_to 'Edit', edit_course_path(@course) %> |
+<%= link_to 'Back', courses_path %>

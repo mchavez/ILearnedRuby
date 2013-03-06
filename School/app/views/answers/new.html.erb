@@ -1,0 +1,6 @@
+<br />
+<%= render 'form' %>
+
+<%# link_to 'Back', answers_path %>
+</br>
+<td><%=link_to('Back to Test', { :controller => "questions", :action => "take_quiz", :id => @answer.quiz_id })%></td>

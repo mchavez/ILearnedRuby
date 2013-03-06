@@ -1,0 +1,35 @@
+
+<br />
+<h2><b><%= @s.name %></b></h2>
+<hr width="100%" align="left">
+Nombre Usuario : <b><%= current_user.email %></b>
+<br />
+<table class="reference">
+  <tr>
+	  <th>ID</th>
+    <th>Question</th>
+    <th>Description</th>
+    <th>No Quiz</th>
+    <th>Subject</th>
+    <th></th>
+  </tr>
+ 
+ <% if @tests %>
+  <% @tests.each do |question| %>
+  <tr>
+	 <td><%= question.id %></td>
+	 <td><%= question.question %></td>
+	 <td><%= question.description %></td>
+	 <td><%= link_to(question.quiz_id, { :controller => "tests", :action => "show", :id => question.quiz_id })%></td>
+	 <td><%= link_to(@s.name, { :controller => "tests", :action => "show", :id => question.quiz_id })%></td>
+	 <td><%= link_to('Answer Question', { :controller => "answers", :action => "new", :id => question.quiz_id, :no => question.id, :username => params[:user] })%></td>
+  </tr>
+  <% end %>
+ <% end %>
+
+ 
+</table>
+
+<br />
+<h5>The content in this page corresponds to item #5</h5>
+<%# link_to 'New Question', new_question_path %>

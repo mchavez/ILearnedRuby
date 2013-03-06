@@ -1,0 +1,48 @@
+<p id="notice"><%= notice %></p>
+
+<br />
+<h2><b> Test Reviews </b></h2>
+<hr width="100%" align="left">
+<%= form_tag(test_reviews_path, :method => "get") do %>
+  <div>
+    <b><%= label_tag(:quiz_id, "Test Name :") %></b>
+    <%= select_tag(:quiz_id, options_from_collection_for_select(Test.all, :id, :name)) %>
+
+    <label><b>User Name :</b></label>
+    <%= select_tag(:search, options_from_collection_for_select(User.all, :email, :email)) %>
+    <%# text_field_tag(:search, params[:search], size:'35%') %>
+
+    <%= submit_tag "Search", :name => nil %>
+  </div>
+<% end %>
+<hr width="100%" align="left">
+<br />
+
+<table class=reference>
+  <tr>
+    <th>No</th>
+    <th>User name</th>
+    <th>No Quiz</th>
+    <th>Quiz</th>
+    <th>No Question</th>
+    <th>Question</th>
+    <th>Response given by user</th>
+  </tr>
+
+<% @test_reviews.each do |answer| %>
+  <tr>
+    <td><%= answer.id %></td>
+    <td><%= answer.user_name %></td>
+    <td><%= answer.quiz_id %></td>
+    <td><%= answer.question.test.name %></td>
+    <td><%= answer.question_id %></td>
+    <td><%= answer.question.question %></td>
+    <td><%= answer.response %></td>
+  </tr>
+<% end %>
+</table>
+
+<h5> The content in this page corresponds to item #6</h5>
+<h6>You must be a teacher in order to make a test Review.</h6>
+
+

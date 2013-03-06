@@ -1,0 +1,29 @@
+<!--<p id="notice"><%= notice %></p>-->
+
+<h2>Test <%= @test.name %></h2>
+
+<table class="reference">
+  <tr>
+	<th>ID</th>
+    <th>Test Name</th>
+    <th>Test Description</th>
+    <th>Test Date</th>
+    <th>Course ID</th>
+    <th></th>
+  </tr>
+
+  <tr>
+	<td><%= @test.id %></td>
+	<td><%= @test.name %></td>
+    <td><%= @test.description %></td>
+    <td><%= @test.date %></td>
+	<td><%= @test.course_id %></td>
+	<td><%# @test.questions.id %></td>
+  </tr>
+</table>
+
+
+<br />
+
+<%= link_to 'Edit', edit_test_path(@test) %> |
+<%= link_to 'Back', tests_path %>
