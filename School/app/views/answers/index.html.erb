@@ -1,7 +1,8 @@
 <br />
 <h2><b>List of Answers</b></h2>
 
-<table class=reference>
+<table id="answers" class="display">
+<thead>
   <tr>
     <th>No</th>
     <th>User name</th>
@@ -11,7 +12,8 @@
     <th>No Quiz</th>
     <th>Quiz</th>
   </tr>
-
+</thead>
+<tbody> 
 <% @answers.each do |answer| %>
   <tr>
     <td><%= answer.id %></td>
@@ -24,6 +26,7 @@
 
   </tr>
 <% end %>
+</tbody> 
 </table>
 
     <td><%#  link_to 'Show', answer %></td>

@@ -3,26 +3,29 @@
 <h2><b>List of Teachers</b></h2>
 <hr width="75%" align="left">
 <%= link_to 'Add a New Teacher', new_teacher_path %>
-<table class="reference">
+<table id="teachers" class='display'>
+  <thead>
   <tr>
-	<th>ID</th>
+	 <th>ID</th>
     <th>Full Name</th>
     <th>Email Address</th>
     <th></th>
     <th></th>
     <th></th>
-  </tr>
-
-<% @teachers.each do |teacher| %>
-  <tr>
-	<td><%= teacher.id %></td>
-    <td><%= teacher.full_name %></td>
-    <td><%= teacher.email_address %></td>
-    <td><%= link_to 'Show', teacher %></td>
-    <td><%= link_to 'Edit', edit_teacher_path(teacher) %></td>
-    <td><%= link_to 'Destroy', teacher, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
+   </tr>
+</thead>
+<tbody>
+  <% @teachers.each do |teacher| %>
+    <tr>
+	    <td><%= teacher.id %></td>
+      <td><%= teacher.full_name %></td>
+      <td><%= teacher.email_address %></td>
+      <td><%= link_to 'Show', teacher %></td>
+      <td><%= link_to 'Edit', edit_teacher_path(teacher) %></td>
+      <td><%= link_to 'Destroy', teacher, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</tbody>
 </table>
 
 <br />

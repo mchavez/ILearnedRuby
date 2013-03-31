@@ -17,8 +17,8 @@
 <% end %>
 <hr width="100%" align="left">
 <br />
-
-<table class=reference>
+<table id="test_reviews" class="display">
+  <thead>
   <tr>
     <th>No</th>
     <th>User name</th>
@@ -28,7 +28,8 @@
     <th>Question</th>
     <th>Response given by user</th>
   </tr>
-
+</thead>
+<tbody> 
 <% @test_reviews.each do |answer| %>
   <tr>
     <td><%= answer.id %></td>
@@ -40,6 +41,7 @@
     <td><%= answer.response %></td>
   </tr>
 <% end %>
+</tbody> 
 </table>
 
 <h5> The content in this page corresponds to item #6</h5>

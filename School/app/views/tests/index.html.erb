@@ -3,34 +3,37 @@
 <h2><b>List of Tests</b></h2>
 <hr width="100%" align="left">
 <%= link_to 'Create a New Test', new_test_path %>
-<table class="reference">
-  <tr>
-	<th>No</th>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Date</th>
-    <th>No Course</th>
-    <th>Course</th>
-    <th></th>
-    <th></th>
-	<th></th>
-	<th></th>
+<table id="tests" class="display">
+  <thead>
+    <tr>
+	    <th>No</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Date</th>
+      <th>No Course</th>
+      <th>Course</th>
+      <th></th>
+      <th></th>
+	    <th></th>
+	    <th></th>
+      </tr>
+  </thead>
+<tbody> 
+  <% @tests.each do |test| %>
+    <tr>
+	   <td><%=link_to(test.id, { :controller => "questions", :action => "take_quiz", :id => test.id })%></td>
+	   <td><%= link_to(test.name, { :controller => "questions", :action => "take_quiz", :id => test.id })%></td>
+     <td><%= test.description %></td>
+     <td><%= test.date %></td>
+	   <td><%= link_to(test.course_id, { :controller => "courses", :action => "show", :id => test.course_id })%></td>
+	   <td><%= link_to(test.course.name, { :controller => "courses", :action => "show", :id => test.course_id })%></td>
+     <td><%= link_to 'Show', test %></td>
+     <td><%= link_to 'Edit', edit_test_path(test) %></td>
+     <td><%= link_to 'Destroy', test, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	   <td><%=link_to('Take Test', { :controller => "questions", :action => "take_quiz", :id => test.id })%></td>
   </tr>
-
-<% @tests.each do |test| %>
-  <tr>
-	<td><%=link_to(test.id, { :controller => "questions", :action => "take_quiz", :id => test.id })%></td>
-	<td><%= link_to(test.name, { :controller => "questions", :action => "take_quiz", :id => test.id })%></td>
-    <td><%= test.description %></td>
-    <td><%= test.date %></td>
-	<td><%= link_to(test.course_id, { :controller => "courses", :action => "show", :id => test.course_id })%></td>
-	<td><%= link_to(test.course.name, { :controller => "courses", :action => "show", :id => test.course_id })%></td>
-    <td><%= link_to 'Show', test %></td>
-    <td><%= link_to 'Edit', edit_test_path(test) %></td>
-    <td><%= link_to 'Destroy', test, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-	<td><%=link_to('Take Test', { :controller => "questions", :action => "take_quiz", :id => test.id })%></td>
-  </tr>
-<% end %>
+  <% end %>
+</tbody> 
 </table>
 
 
